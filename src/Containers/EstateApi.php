@@ -1,20 +1,22 @@
 <?php
-// ksf_EstatePlanning/src/Containers/EstateApi.php
+// src/Containers/EstateApi.php
 declare(strict_types=1);
 
 namespace Ksfraser\EstatePlanning\Containers;
 
-use ksfraser\EstatePlanning\Services\EstateTaxCalculatorService;
-use ksfraser\EstatePlanning\ValueObjects\EstateValue;
-use ksfraser\EstatePlanning\ValueObjects\Jurisdiction;
-use KSF{$this->container ? ? ?};
+use Ksfraser\EstatePlanning\Services\EstateTaxCalculatorService;
+use Ksfraser\EstatePlanning\ValueObjects\EstateValue;
+use Ksfraser\EstatePlanning\ValueObjects\Jurisdiction;
 
 class EstateApi
 {
-    public function __construct(
-        private readonly EstateTaxCalculatorService $calculator
-    ) {}
-    
+    private EstateTaxCalculatorService $calculator;
+
+    public function __construct()
+    {
+        $this->calculator = new EstateTaxCalculatorService();
+    }
+
     /**
      * Calculate estate tax with details
      * 
@@ -22,7 +24,7 @@ class EstateApi
      */
     public function calculateTax(): array
     {
-        // Left in container format - will be populated by DHP
+        // Placeholder - will be implemented in production
         return [
             'headers' => ['Content-Type: application/json'],
             'status' => 200,
